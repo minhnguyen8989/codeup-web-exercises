@@ -1,4 +1,5 @@
 "use strict";
+console.log("Hello from external JavaScript");
 
 // Exercise 1
 alert("Welcome to my Website!");
