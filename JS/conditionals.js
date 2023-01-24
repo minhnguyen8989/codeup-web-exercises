@@ -159,3 +159,24 @@ calculateTotal(luckyNumber, totalBill);
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+var confirmEnter = confirm("Would you like to enter a number?");
+if(confirmEnter === true) {
+    var inputNumber = prompt("Please, Enter a number: ");
+    //Is number is odd or even
+    if((inputNumber % 2) === 0){
+        alert("Your number is a Even number.");
+    } else {
+        alert("Your number is a Odd number.");
+    }
+    // what is number plus 100
+    alert("Your number plus 100 is: " + (parseInt(inputNumber) + 100));
+    // is number negative or positive
+    if (parseInt(inputNumber) > 0){
+        alert("Your number is a Positive number.");
+    } else if (parseInt(inputNumber) < 0){
+        alert("Your number is a Negative number.");
+    }
+} else {
+    alert("Well, Good Bye!");
+}
