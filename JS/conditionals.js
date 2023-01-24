@@ -21,17 +21,17 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
-function analyzeColor(colors){
-    if(colors === "red"){
-        console.log("Hey, " + colors.toUpperCase() + " is a color of the fire!");
-    } else if(colors === "blue") {
-        console.log(colors.toUpperCase() + " is a color of the sky!");
-    } else if(colors === "yellow") {
-        console.log("WOW, " + colors.toUpperCase() + " is a color of stone!");
-    } else {
-        console.log(colors.toUpperCase() + " is a beauty colors Yo!");
-    }
-}
+// function analyzeColor(colors){
+//     if(colors === "red"){
+//         console.log("Hey, " + colors.toUpperCase() + " is a color of the fire!");
+//     } else if(colors === "blue") {
+//         console.log(colors.toUpperCase() + " is a color of the sky!");
+//     } else if(colors === "yellow") {
+//         console.log("WOW, " + colors.toUpperCase() + " is a color of stone!");
+//     } else {
+//         console.log(colors.toUpperCase() + " is a beauty colors Yo!");
+//     }
+// }
 
 
 // Don't change the next two lines!
@@ -47,10 +47,28 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
+// console.log(analyzeColor(randomColor));
+
 /**
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
+function analyzeColor(colors){
+    switch (colors){
+        case "red":
+            console.log("Hey, " + colors.toUpperCase() + " is a color of the fire!");
+            break;
+        case "blue":
+            console.log(colors.toUpperCase() + " is a color of the sky!");
+            break;
+        case "yellow":
+            console.log("WOW, " + colors.toUpperCase() + " is a color of stone!");
+            break;
+        default:
+            console.log(colors.toUpperCase() + " is a beauty colors Yo!");
+            break;
+    }
+}
 
 /**
  * TODO:
