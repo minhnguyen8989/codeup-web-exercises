@@ -100,6 +100,33 @@ analyzeColor(askForColors);
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+function calculateTotal(luckyNumber, billAmount){
+    switch (luckyNumber){
+        case 0:
+            alert("It's number " + luckyNumber +". Your bill total is: $" + billAmount);
+            break;
+        case 1:
+            var discountAmount1 = billAmount - (.10*billAmount);
+            alert("It's number " + luckyNumber +". Your bill total is: $" + discountAmount1);
+            break;
+        case 2:
+            var discountAmount2 = billAmount - (.25*billAmount);
+            alert("It's number " + luckyNumber +". Your bill total is: $" + discountAmount2);
+            break;
+        case 3:
+            var discountAmount3 = billAmount - (.35*billAmount);
+            alert("It's number " + luckyNumber +". Your bill total is: $" + discountAmount3);
+            break;
+        case 4:
+            var discountAmount4 = billAmount - (.50*billAmount);
+            alert("It's number " + luckyNumber +". Your bill total is: $" + discountAmount4);
+            break;
+        case 5:
+            var discountAmount5 = billAmount - billAmount;
+            alert("It's number " + luckyNumber +". Your bill total is: $" + discountAmount5);
+            break;
+    }
+}
 
 /**
  * TODO:
@@ -110,7 +137,9 @@ analyzeColor(askForColors);
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
+var totalBill = prompt("The total amount of your bills, Plz!");
+calculateTotal(luckyNumber, totalBill);
 
 /**
  * TODO:
