@@ -1,5 +1,5 @@
 "use strict";
-
+//alert("Here to test if files are linked");
 /* ########################################################################## */
 
 /**
@@ -21,6 +21,18 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
+function analyzeColor(colors){
+    if(colors === "red"){
+        console.log("Hey, " + colors.toUpperCase() + " is a color of the fire!");
+    } else if(colors === "blue") {
+        console.log(colors.toUpperCase() + " is a color of the sky!");
+    } else if(colors === "yellow") {
+        console.log("WOW, " + colors.toUpperCase() + " is a color of stone!");
+    } else {
+        console.log(colors.toUpperCase() + " is a beauty colors Yo!");
+    }
+}
+
 
 // Don't change the next two lines!
 // These lines create two variables for you:
