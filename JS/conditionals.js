@@ -56,16 +56,16 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
 function analyzeColor(colors){
     switch (colors){
         case "red":
-            console.log("Hey, " + colors.toUpperCase() + " is a color of the fire!");
+            alert ("Hey, " + colors.toUpperCase() + " is a color of the fire!");
             break;
         case "blue":
-            console.log(colors.toUpperCase() + " is a color of the sky!");
+            alert (colors.toUpperCase() + " is a color of the sky!");
             break;
         case "yellow":
-            console.log("WOW, " + colors.toUpperCase() + " is a color of stone!");
+            alert ("WOW, " + colors.toUpperCase() + " is a color of stone!");
             break;
         default:
-            console.log(colors.toUpperCase() + " is a beauty colors Yo!");
+            alert (colors.toUpperCase() + " is a beauty colors Yo!");
             break;
     }
 }
@@ -77,6 +77,8 @@ function analyzeColor(colors){
  * function to show it to the user.
  */
 
+var askForColors = prompt("Hey, what is your favorite color?");
+analyzeColor(askForColors);
 /* ########################################################################## */
 
 /**
