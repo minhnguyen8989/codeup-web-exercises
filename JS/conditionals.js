@@ -47,7 +47,7 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
-// console.log(analyzeColor(randomColor));
+console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
@@ -176,6 +176,8 @@ if(confirmEnter === true) {
         alert("Your number is a Positive number.");
     } else if (parseInt(inputNumber) < 0){
         alert("Your number is a Negative number.");
+    } else {
+        alert("Your number is ZERO;");
     }
 } else {
     alert("Well, Good Bye!");
