@@ -125,6 +125,8 @@ function calculateTotal(luckyNumber, billAmount){
             var discountAmount5 = billAmount - billAmount;
             alert("It's number " + luckyNumber +". Your bill total is: $" + discountAmount5);
             break;
+        default:
+            alert("Please enter number 0 - 5 only");
     }
 }
 
@@ -177,7 +179,7 @@ if(confirmEnter === true) {
     } else if (parseInt(inputNumber) < 0){
         alert("Your number is a Negative number.");
     } else {
-        alert("Your number is ZERO;");
+        alert("Your number is ZERO, it might be the Positive number");
     }
 } else {
     alert("Well, Good Bye!");
