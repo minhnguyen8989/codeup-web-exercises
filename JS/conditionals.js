@@ -165,9 +165,9 @@ calculateTotal(luckyNumber, totalBill);
 var confirmEnter = confirm("Would you like to enter a number?");
 if(confirmEnter === true) {
     var inputNumber = prompt("Please, Enter a number: ");
-    if(Number.isNaN === true){
+    if(isNaN(inputNumber) !== true){
         //Is number is odd or even
-        if((inputNumber % 2) === 0){
+        if((inputNumber % 2) !== 0){
             alert("Your number is a Even number.");
         } else {
             alert("Your number is a Odd number.");
