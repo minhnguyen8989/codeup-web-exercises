@@ -2,13 +2,13 @@
 
 // alert("check for files hooked up");
 
-//Creat a function named showMultiplicationTable that accept a number
 function showMultiplicationTable(x){
     //console.logs the multiplication table for that number ( 1 thru 10)
     for (var i = 1; i <= 10; i++) {
         console.log(x * i);
     }
 }
+showMultiplicationTable(7);
 
 
 for(var i = 0; i < 10; i++) {
@@ -21,12 +21,20 @@ for(var i = 0; i < 10; i++) {
     }
 }
 
-// for (var i = 1; i <= 9; i++){
-//         console.log(i);
-//         for(var j = 0; j < i; j++){
-//             console.log(j + i);
-//         }
-// }
+
+for (var i = 1; i <= 9; i++){
+    var iString = "";
+    for(var j = 1; j <= i; j++){
+        iString += i;
+    }
+    console.log(iString);
+}
+
+
+for (var i = 1; i <= 9; i++){
+    console.log(i.toString().repeat(i))
+}
+
 
 
 for(var i = 100; i >= 5; i--) {
