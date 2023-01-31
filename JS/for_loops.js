@@ -2,10 +2,10 @@
 
 // alert("check for files hooked up");
 
-function showMultiplicationTable(x){
+function showMultiplicationTable(number){
     //console.logs the multiplication table for that number ( 1 thru 10)
     for (var i = 1; i <= 10; i++) {
-        console.log(x * i);
+        console.log(number * i);
     }
 }
 showMultiplicationTable(7);
@@ -25,7 +25,7 @@ for(var i = 0; i < 10; i++) {
 for (var i = 1; i <= 9; i++){
     var iString = "";
     for(var j = 1; j <= i; j++){
-        iString += i;
+        iString = iString + i;
     }
     console.log(iString);
 }
@@ -42,4 +42,3 @@ for(var i = 100; i >= 5; i--) {
         console.log(i);
     }
 }
-
