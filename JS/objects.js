@@ -56,12 +56,6 @@
     ];
 
 
-        var amountsss = shoppers[1].amount;
-
-        if (amountsss > 200) {
-            console.log("discount accept");
-        } else
-            console.log("No discount");
 
 
     /** TODO:
@@ -113,7 +107,12 @@
      *      ---
      *      ...
      */
-    books.forEach(function (element, index, array))
+    for (var i = 1; i < 6; i++) {
+        console.log("Book # " + i);
+        console.log("Title: " + books[i - 1].title);
+        console.log("Author: " + books[i - 1].author.firstName + " " + books[i - 1].author.lastName);
+        console.log("---");
+    }
 
 
 
@@ -127,5 +126,8 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+    function createBook(tilte, author) {
+
+    }
 
 })();
