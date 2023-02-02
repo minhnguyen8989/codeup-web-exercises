@@ -55,6 +55,16 @@
         {name: 'George', amount: 320}
     ];
 
+    for (var i = 0; i < 3 ; i++) {
+        var amountEachPereson = shoppers[i].amount;
+        var afterDiscount = parseInt(shoppers[i].amount) - (parseInt(shoppers[i].amount)*.12);
+        if (amountEachPereson > 200 ){
+            console.log("You are " + shoppers[i].name + "! You spend more than $200 today as your bill is: $" + shoppers[i].amount + ". After discount of 12%, your bill is now: $" + afterDiscount);
+        } else {
+            console.log("You are " + shoppers[i].name + "! No discount for you as you spend less than $200. Your bill is: $" + shoppers[i].amount);
+        }
+    }
+
 
 
 
