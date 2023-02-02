@@ -25,7 +25,10 @@
      * string, and <li> tags around each planet.
      */
 
-    var stringWithBr = planetsArray.join("<br>");
-    console.log(stringWithBr);
-
+    planetsArray.forEach(function (planet, order,array){
+        console.log(planet + "<br>");
+    });
+    planetsArray.forEach(function (planet){
+        console.log("<li>" + planet + "</li>");
+    });
 })();
