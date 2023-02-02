@@ -11,6 +11,13 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
+    var person = {
+        firstName: 'Minh',
+        lastName: 'Nguyen',
+    }
+    console.log(person.firstName)
+    console.log(person.lastName)
+
 
     /**
      * TODO:
@@ -21,6 +28,11 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+    person.sayHello = function () {
+        return "Hello from " + this.firstName + " " + this.lastName;
+    }
+    console.log(person.sayHello());
+
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -36,11 +48,21 @@
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
+
+
+        var amountsss = shoppers[1].amount;
+
+        if (amountsss > 200) {
+            console.log("discount accept");
+        } else
+            console.log("No discount");
+
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -54,6 +76,18 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+    var books = [
+        {title: "Java", author:{firstName: "Mike", lastName: "Tran"}},
+        {title: "C#", author:{firstName: "Tony", lastName: "Nguyen"}},
+        {title: 'Ruby', author: {firstName: 'Micky', lastName: 'Vo'}},
+        {title: "Python", author: {firstName: 'Thomas', lastName: "Pham"}},
+        {title: 'Flutter', author: {firstName: 'Alex', lastName: "Bui"}}
+        ];
+
+    console.log(books[0].title);
+    console.log(books[0].author.firstName);
+    console.log(books[0].author.lastName);
+
 
     /**
      * TODO:
@@ -79,6 +113,9 @@
      *      ---
      *      ...
      */
+    books.forEach(function (element, index, array))
+
+
 
     /**
      * Bonus:
