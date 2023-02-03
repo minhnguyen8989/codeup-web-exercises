@@ -66,7 +66,7 @@
     }
 
     // Foreach loop
-    shoppers.forEach(function (shopper){
+    shoppers.forEach(function (shopper,rank){
         var afterDiscount = parseInt(shopper.amount) - (parseInt(shopper.amount)*.12);
         if (shopper.amount > 200 ){
             console.log("Hello " + shopper.name + "! You spend more than $200 today as your bill is: $" + shopper.amount + ". After discount of 12%, your bill is now: $" + afterDiscount);
@@ -133,7 +133,13 @@
         console.log("Author: " + books[i - 1].author.firstName + " " + books[i - 1].author.lastName);
         console.log("---");
     }
-
+    //foreach loop
+    books.forEach(function (book,index){
+        console.log("Book: #" + (parseInt(index) + 1));
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("*************")
+    })
 
 
     /**
