@@ -95,7 +95,8 @@
         {title: "C#", author:{firstName: "Tony", lastName: "Nguyen"}},
         {title: 'Ruby', author: {firstName: 'Micky', lastName: 'Vo'}},
         {title: "Python", author: {firstName: 'Thomas', lastName: "Pham"}},
-        {title: 'Flutter', author: {firstName: 'Alex', lastName: "Bui"}}
+        {title: 'Flutter', author: {firstName: 'Alex', lastName: "Bui"}},
+        {title: 'Im coding', author: {firstName: 'Minh', lastName: 'Nguyen'}}
         ];
 
     console.log(books[0].title);
