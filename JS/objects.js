@@ -136,8 +136,18 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
-    function createBook(tilte, author) {
+    function createBook(title, author) {
+        return {
+            title: title,
+            author: author,
+        };
+    }
+    var books = [createBook('Java', 'Mike'), createBook('C#', 'Tony')];
 
+    function showBookInfo(input){
+        for (var i = 0; i < 2 ; i++)
+        console.log("Book title: " + input[i].title + ". And author is: " + input[i].author + ".")
     }
 
+    console.log(showBookInfo(books));
 })();
