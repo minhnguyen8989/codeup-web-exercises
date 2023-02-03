@@ -65,6 +65,16 @@
         }
     }
 
+    // Foreach loop
+    shoppers.forEach(function (shopper){
+        var afterDiscount = parseInt(shopper.amount) - (parseInt(shopper.amount)*.12);
+        if (shopper.amount > 200 ){
+            console.log("Hello " + shopper.name + "! You spend more than $200 today as your bill is: $" + shopper.amount + ". After discount of 12%, your bill is now: $" + afterDiscount);
+        } else {
+            console.log("Hello " + shopper.name + "! No discount for you as you spend less than $200. Your bill is: $" + shopper.amount);
+        }
+    })
+
 
 
 
