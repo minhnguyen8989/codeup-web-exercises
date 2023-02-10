@@ -81,3 +81,28 @@ a {
 .profile-form {
     line-height: 80px;
 }
+.profile-details, .timeline, .who-to-follow {
+    margin: 0px 0.5em 0px 0.5em;
+    position: relative;
+    display: inline-block;
+    float: top;
+}
+.profile-details {
+    width: 25%;
+}
+.timeline {
+    width: 50%;
+}
+.who-to-follow {
+    width: 25%;
+}
+
+.container {
+    margin-top: 2em;
+}
+.media {
+    width: 100%;
+    background-color: white;
+    border: 1px solid #dde3e7;
+    padding: 0.5em;
+}
