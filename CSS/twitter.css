@@ -71,6 +71,7 @@ a {
 .nav-item{
     display: inline-block;
     padding-left: 1.5em;
+    margin: 0.5em 3em;
 }
 
 .profile-image {
@@ -81,28 +82,48 @@ a {
 .profile-form {
     line-height: 80px;
 }
-.profile-details, .timeline, .who-to-follow {
-    margin: 0px 0.5em 0px 0.5em;
-    position: relative;
-    display: inline-block;
-    float: top;
-}
-.profile-details {
-    width: 25%;
-}
-.timeline {
-    width: 50%;
-}
-.who-to-follow {
-    width: 25%;
-}
-
 .container {
     margin-top: 2em;
+    position: relative;
+    width: 100%;
 }
+.profile-details {
+    float: left;
+    margin: 0 0.5em;
+    width: calc(25% - 1em);
+}
+.timeline {
+    float:  left;
+    margin: 0 0.5em;
+    width: calc(50% - 1em);
+}
+.who-to-follow {
+    float: left;
+    margin: 0 0.5em;
+    width: calc(25% - 1em);
+}
+
 .media {
     width: 100%;
-    background-color: white;
-    border: 1px solid #dde3e7;
+    background-color: whitesmoke;
+    border-bottom: 1px solid #dde3e7;
     padding: 0.5em;
+    float: left;
+    overflow: scroll;
+}
+.media-image {
+    width: 50px;
+    float: left;
+    margin-top: 1.33em;
+}
+.media-body {
+    float: left;
+    width: calc(100% - 50px);
+}
+
+.profile-items {
+    list-style-type: none;
+}
+.profile-entry {
+    margin: 0.5em;
 }
