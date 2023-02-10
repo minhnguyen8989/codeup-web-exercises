@@ -44,6 +44,7 @@ a {
 }
 .profile {
     background: var(--light-bg);
+    height: 80px;
 }
 .btn {
     border: 1px solid var(--main-link-color);
@@ -70,4 +71,13 @@ a {
 .nav-item{
     display: inline-block;
     padding-left: 1.5em;
+}
+
+.profile-image {
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 20px;
+}
+.profile-form {
+    line-height: 80px;
 }
