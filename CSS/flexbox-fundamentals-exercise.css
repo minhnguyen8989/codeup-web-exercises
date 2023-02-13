@@ -11,7 +11,7 @@ h1 {text-align: center;}
 
 h2, h3 {
     padding: 0;
-    margin: 0;
+    margin: 10px 0;
 }
 
 .container {
@@ -67,6 +67,7 @@ section:nth-of-type(1) div:last-child {
     width: 100%;
     background: blue;
     height: 10em;
+    margin-top: 20px;
 }
 
 section:nth-of-type(3) {
@@ -88,7 +89,7 @@ section:nth-of-type(3) h3 {
 
 .large-brown-box {
     height: 5em;
-    width: 5em;
+    width: 7em;
     background: brown;
     /* enter needed declarations here */
 }
@@ -121,4 +122,50 @@ section:nth-of-type(6) {
 
 .grey-box:nth-of-type(odd) {
     height: 4em;
+}
+
+.container-green-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.green-box4 {
+    align-self: flex-start;
+}
+
+.container-purple-box {
+    display: flex;
+}
+
+.purple-box1 {
+    flex-grow: 4;
+}
+.purple-box2 {
+    flex-grow: 2;
+}
+.purple-box3 {
+    flex-grow: 1;
+}
+.heading-two-orange-circle {
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-large-brown-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-yellow-box {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+.container-grey-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
