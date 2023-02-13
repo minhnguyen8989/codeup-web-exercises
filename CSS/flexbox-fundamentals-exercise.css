@@ -172,7 +172,7 @@ section:nth-of-type(6) {
 
 .container-yellow-box {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin: 20px 0;
 }
 .container-grey-box {
