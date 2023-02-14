@@ -22,6 +22,12 @@ a {
     /* TODO: Make this a flex container and align it's items to the center*/
     display: flex;
 }
+.container .card:nth-child(1){
+    align-self: center;
+}
+.container .card:nth-child(3){
+    align-self: center;
+}
 
 .card {
     background: rgba(255, 255, 255, 0.2);
