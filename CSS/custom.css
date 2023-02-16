@@ -1,0 +1,10 @@
+.jumbotron {
+    border: 1px solid red;
+    background-image: url("../IMAGE/pizza.png");
+    height: 346px;
+    background-size: cover;
+    display: flex;
+}
+.titlecover {
+    margin: auto;
+}
