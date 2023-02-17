@@ -20,6 +20,7 @@ nav {
 }
 img {
     flex-grow: 1;
+    flex-shrink: 1;
 }
 .main {
     display: flex;
@@ -45,4 +46,51 @@ footer {
 }
 .fa-brands {
     padding: 0.5em;
+}
+
+@media screen and (max-width:450px) {
+    .alert-info {
+        border: 1px solid gray;
+        background-color: #c4f5f5;
+        display: flex;
+        justify-content: center;
+        padding: 1em;
+    }
+    h1 {
+        text-align: center;
+        float: none;
+        margin: 0;
+    }
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        padding: 0;
+    }
+    .nav-links li {
+        width: calc(100% - 30px);
+        background-color: #c5c5c5;
+        margin: 5px 0;
+        display: flex;
+        justify-content: center;
+    }
+    .header-img {
+        width: 100%;
+    }
+    img {
+        width: 390px;
+    }
+    .main {
+        float: none;
+        width: 100%;
+    }
+    .sub-section {
+        float: none;
+        width: 100%;
+    }
+    footer {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
