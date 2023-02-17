@@ -25,10 +25,7 @@
      * string, and <li> tags around each planet.
      */
 
-    planetsArray.forEach(function (planet, order,array){
+    var planetWithBrTag = planetsArray.forEach(function (planet, order,array){
         console.log(planet + "<br>");
-    });
-    planetsArray.forEach(function (planet){
-        console.log("<li>" + planet + "</li>");
     });
 })();
