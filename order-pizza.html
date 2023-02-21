@@ -54,15 +54,17 @@
   <div class="tab-content" id="nav-tabContent">
 <!--    Tab 1 content-->
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-<!--      add card-->
 <!--      main card-->
       <div class="card" style="width: 100%;">
-        <div class="card-body">
-          <h4>Choose Size and Crust</h4>
+          <div class="card-header bg-primary text-light">
+            <h4>Choose Size and Crust</h4>
+          </div>
 <!--          sub-card-1-->
-          <div class="card" style="width: 100%;">
-            <div class="card-body">
+          <div class="card mx-auto my-1" style="width: 98%;">
+            <div class="card-header">
               <h5 class="card-title">Hand Tossed</h5>
+            </div>
+            <div class="card-body">
               <h6 class="card-subtitle mb-2 text-muted">Garlic seasoned crust with a rich buttery taste.</h6>
               <input id="handTosssedS" type="radio" name="handTossedSize" value="handTosssedS">
               <label for="handTosssedS">Small (10")</label>
@@ -74,9 +76,11 @@
             </div>
           </div>
 <!--          sub-card-2-->
-          <div class="card" style="width: 100%;">
-            <div class="card-body">
+          <div class="card mx-auto my-1" style="width: 98%;">
+            <div class="card-header">
               <h5 class="card-title">Cripsy Thin</h5>
+            </div>
+            <div class="card-body">
               <h6 class="card-subtitle mb-2 text-muted">Thin enough for optimum crispy to crunchy ratio.</h6>
               <input id="cripsyThinM" type="radio" name="cripsyThinSize" value="cripsyThinM">
               <label for="cripsyThinM">Medium (12")</label>
@@ -85,7 +89,6 @@
               <label for="cripsyThinL">Large (14")</label>
             </div>
           </div>
-        </div>
         <div class="card-footer d-flex justify-content-end">
           <button class="btn btn-primary">Next Step ></button>
         </div>
@@ -95,12 +98,47 @@
     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
         <div class="card" style="width: 100%;">
-          <div class="card-body">
+          <div class="card-header bg-primary text-light">
             <h4>Choose Cheese and Sauce</h4>
+          </div>
             <!--          sub-card-1-->
-            <div class="card" style="width: 100%;">
+          <div class="card mx-auto my-1" style="width: 98%;">
+            <div class="card-header">
+              <h5 class="card-title">Hand Tossed</h5>
+            </div>
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted">Garlic seasoned crust with a rich buttery taste.</h6>
+              <input id="handTosssedS" type="radio" name="handTossedSize" value="handTosssedS">
+              <label for="handTosssedS">Small (10")</label>
+              <br>
+              <input id="handTosssedM" type="radio" name="handTossedSize" value="handTosssedM">
+              <label for="handTosssedM">Medium (12")</label>
+            </div>
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            </div>
+          </div>
+          <!--          sub-card-2-->
+          <div class="card mx-auto my-1" style="width: 98%;">
+            <div class="card-header">
+              <h5 class="card-title">Cripsy Thin</h5>
+            </div>
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted">Thin enough for optimum crispy to crunchy ratio.</h6>
+              <input id="cripsyThinM" type="radio" name="cripsyThinSize" value="cripsyThinM">
+              <label for="cripsyThinM">Medium (12")</label>
+              <br>
+              <input id="cripsyThinL" type="radio" name="cripsyThinSize" value="cripsyThinL">
+              <label for="cripsyThinL">Large (14")</label>
+            </div>
+          </div>
+
+
+
+            <div class="card mx-auto my-1" style="width: 98%;">
               <div class="card-body">
-                <h5 class="card-title">Cheese</h5>
+                <div class="card-header">
+                  <h5 class="card-title">Cheese</h5>
+                </div>
                 <label for="cheeseLevel">How Much?</label>
                 <br>
                 <select name="cheeseLevel" id="cheeseLevel">
@@ -130,7 +168,6 @@
                   <option value="heavy">Heavy</option>
                 </select>
               </div>
-            </div>
           </div>
           <div class="card-footer d-flex justify-content-end">
             <button class="btn btn-primary">< Previous</button>
@@ -142,8 +179,9 @@
 <!--    Tab 3 content-->
     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
       <div class="card" style="width: 100%;">
-        <div class="card-body">
+        <div class="card-header bg-primary text-light">
           <h4>Choose Topping</h4>
+        </div>
           <!--          sub-card-1-->
           <div class="card" style="width: 100%;">
             <div class="card-body">
@@ -182,7 +220,6 @@
         <div class="card-footer d-flex justify-content-end">
           <button class="btn btn-primary">Checkout <i class="fa-solid fa-cart-shopping"></i></button>
         </div>
-      </div>
       </form>
     </div>
   </div>
