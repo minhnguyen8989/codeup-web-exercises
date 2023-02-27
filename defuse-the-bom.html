@@ -7,19 +7,20 @@
 </head>
 <body>
 
-<h2 id="message">This BOM will self destruct in <span id="timer">5</span> seconds...</h2>
+<h2 id="message">This BOM will self destruct in <span id="timer">10</span> seconds...</h2>
 <button id="defuser">Defuse the BOM</button>
 
 <script>
   (function() {
     "use strict";
 
-    var detonationTimer = 5;
+    var detonationTimer = 10;
 
     // TODO: This function needs to be called once every second
     var intervalID = setInterval(function updateTimer() {
       if (detonationTimer == 0) {
         alert('EXTERMINATE!');
+        window.location = 'https://media.tenor.com/kehsMPilSxQAAAAd/explosion-house-explosion.gif';
         document.body.innerHTML = '';
       } else if (detonationTimer > 0) {
         document.getElementById('timer').innerHTML = detonationTimer;
@@ -32,7 +33,7 @@
     function defuseTheBOM() {
       if(defuser) {
         clearInterval(intervalID);
-        alert("BOM defused at " + detonationTimer + " second");
+        alert("BOM was defused at " + (detonationTimer) + " second");
       }
     }
 
