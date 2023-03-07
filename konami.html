@@ -19,6 +19,8 @@
   $('span').css('border', '1px solid').css('padding', '10px');
 
   $(document).keyup(function(event){
+    $('h1').css('color', 'black');
+    $('#resetbtn').css('color', 'black');
     userInput+= event.keyCode;
     console.log(userInput);
 
@@ -28,6 +30,9 @@
     } else {
       $('body').css('background-color', 'red');
     }
+  }).keydown(function (){
+    $('h1').css('color', 'white');
+    $('#resetbtn').css('color', 'white');
   });
 
   $('#resetbtn').hover(function (){
