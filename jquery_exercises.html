@@ -5,13 +5,38 @@
     <title>Jquery_exercises</title>
 </head>
 <body>
-
+<div id="header-title">
+    <h1>Hello World</h1>
+</div>
+<div class="content1">
+    <p id="aboutus">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate dignissimos est expedita facilis in nemo nobis perspiciatis quasi temporibus. Autem et mollitia odit pariatur quidem reiciendis rem similique vitae?</p>
+    <ul id="list-container">
+        <li id="box1">item 1</li>
+        <li id="box2">item 2</li>
+        <li id="box3">item 3</li>
+    </ul>
+</div>
 
 <!--jQuery CDN-->
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 <script>
 
+    $('#header-title').click(function (e) {
+        $(this).css('background-color', 'cornflowerblue')
+    });
 
+    $('p').dblclick(function (e) {
+        $(this).css('font-size', '18px')
+    });
+
+    $('li').hover(
+        function (e) {
+            $(this).css('color', 'red')
+        },
+        function (e) {
+            $(this).css('color', 'black')
+        }
+    )
 </script>
 </body>
 </html>
