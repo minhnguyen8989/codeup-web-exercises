@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script>
+  "use strict";
+
+// Globle Var
+  var userInput = '';
+  var konamiCode = "3838404037393739666513";
+
+
+  $(document).keyup(function(event){
+    userInput+= event.keyCode;
+    console.log(userInput);
+
+    if(userInput === konamiCode) {
+      $('body').css('background-color', 'cornflowerblue');
+      $('h1').html("Horray! You got it Right")
+    } else {
+      $('body').css('background-color', 'red');
+    }
+
+  });
+</script>
+</body>
+</html>
