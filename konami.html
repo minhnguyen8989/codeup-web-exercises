@@ -4,7 +4,9 @@
   <title>Konami Code</title>
 </head>
 <body>
-<h1>Konami Code</h1>
+<h1>Hello, Guess my Konami Code</h1>
+<span id="resetbtn">Reset Me</span>
+
 
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 <script>
@@ -14,6 +16,7 @@
   var userInput = '';
   var konamiCode = "3838404037393739666513";
 
+  $('span').css('border', '1px solid').css('padding', '10px');
 
   $(document).keyup(function(event){
     userInput+= event.keyCode;
@@ -21,12 +24,17 @@
 
     if(userInput === konamiCode) {
       $('body').css('background-color', 'cornflowerblue');
-      $('h1').html("Horray! You got it Right")
+      $('h1').html("Horray! You got me Right")
     } else {
       $('body').css('background-color', 'red');
     }
-
   });
+
+  $('#resetbtn').hover(function (){
+    $('h1').html("Hello, Guess my Konami Code");
+    $('body').css('background-color', 'white');
+    userInput = '';
+  })
 </script>
 </body>
 </html>
