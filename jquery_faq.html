@@ -7,6 +7,9 @@
     .invisible {
       visibility: hidden;
     }
+    .highlight {
+      background-color: yellow;
+    }
   </style>
 </head>
 <body>
@@ -81,6 +84,10 @@
   $('#myBtn').click(function (){
     $('dd').toggleClass('invisible');
   });
+
+  $('dt').click(function (){
+    $(this).toggleClass('highlight');
+  })
 </script>
 </body>
 </html>
