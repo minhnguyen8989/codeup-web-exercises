@@ -10,10 +10,18 @@
     .highlight {
       background-color: yellow;
     }
+    .getBold {
+      font-weight: bold;
+    }
+    .getBlue {
+      color: blue;
+    }
   </style>
 </head>
 <body>
-<button id="myBtn">Click me to show the answers</button>
+<button id="myBtn">Click me to see the answers</button>
+<br>
+
 <dl>
   <dt>How old is the National Park System?</dt>
   <dd>
@@ -73,6 +81,39 @@
     Opportunities to contract with the National Park Service are posted to FedBizOpps.gov, the federal government’s electronic business portal.
   </dd>
 </dl>
+<!--New exercise-->
+<br>
+<button id="myBtn2">Click me to see the Different</button>
+<br>
+<ul>
+<h3>Glacier National Park</h3>
+  <ul>
+    <li>Glacier: 2,946,681 visits</li>
+    <li>Over one million acres of breathtaking alpine landscapes</li>
+    <li>The working ranch shares the history of the cattle industry</li>
+    <li>Glacier is a place of natural wonders</li>
+  </ul>
+</ul>
+<br>
+<ul>
+<h3>Grand Teton National Park</h3>
+  <ul>
+    <li>Grand Teton: 3,270,076 visits</li>
+    <li>Grand Teton’s distinctive jagged granite pinnacles, scenic lakes, charismatic wildlife, and historic barns and homesteads make it a popular destination for travelers</li>
+    <li>A few hours west, in the heart of Idaho, visitors can experience an odder, less trodden landscape — one made up of curious fissures, cinder cones and craggy volcanic rock</li>
+    <li>The park is vast, wild and so otherworldly that Apollo 14 astronauts trained here in the 1960s to prepare for their voyage to the moon!</li>
+  </ul>
+</ul>
+<br>
+<ul>
+<h3>Acadia National Park</h3>
+  <ul>
+    <li>Acadia: 3,303,393 visits</li>
+    <li>Acadia is famous for its picturesque mountains, diverse woodlands, deep blue waters, carriage roads and historic lighthouses</li>
+    <li>Just three hours inland, Katahdin Woods and Waters National Monument complements Acadia’s coastal landscape with another quintessential Maine experience</li>
+    <li>This recent addition to the National Park System preserves the East Branch of the Penobscot River</li>
+  </ul>
+</ul>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 <script>
@@ -87,6 +128,20 @@
 
   $('dt').click(function (){
     $(this).toggleClass('highlight');
+  })
+
+  $('#myBtn2').click(function (){
+    $('ul > ul').each(function (index){
+        $(this).children().last().toggleClass('highlight');
+    })
+  })
+
+  $('h3').click(function (){
+    $('li').toggleClass('getBold');
+  })
+
+  $('li').click(function (){
+    $('ul > ul').first().toggleClass('getBlue');
   })
 </script>
 </body>
