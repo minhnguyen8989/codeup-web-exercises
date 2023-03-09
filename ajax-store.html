@@ -5,10 +5,11 @@
   <title>Online Store</title>
 </head>
 <body>
+<h2>JSON STATUS: <span></span></h2>
 
 <h1>My Tool Store</h1>
 
-<table id="products">
+<table id="products" width="700px">
   <thead>
   <tr>
     <th>Title</th>
@@ -19,18 +20,41 @@
   </thead>
   <tbody id="insertProducts"></tbody>
 </table>
+<br>
+<br>
+<button id="myBtn">Reload my JSON</button>
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 
 <script>
   (function() {
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
+    let addHtml = '';
+    $.ajax('DATA/inventory.json').done(function (datas, status, jqXhr){
+      // console.log(data);
+      // // console.log(status);
+      // console.log(jqXhr);
+      $('span').html(status);
 
-    // TODO: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    //       HINT: You will want to target #insertProducts for your new HTML elements
+      // TODO: Take the data from inventory.json and append it to the products table
+      //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+      //             its contents and fields
+      //       HINT: You will want to target #insertProducts for your new HTML elements
+
+      datas.forEach(function (data){
+        // console.log(data.title);
+        addHtml += "<tr>"
+                + "<td>"+data.title+"</td>"
+                + "<td>"+data.quantity+"</td>"
+                + "<td>$"+data.price+"</td>"
+                + "<td>"+data.categories+"</td>"
+                + "</tr>";
+      })
+      $("#insertProducts").append(addHtml);
+    })
+
+
   })();
 </script>
 
