@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax-blog</title>
+</head>
+<body>
+    <h2>JSON Status: <span></span></h2>
+    <hr>
+  <div id="post">
+
+  </div>
+<!--jQuery CDN-->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script>
+     let addHtml = '';
+
+     // GET
+      $.get("DATA/blog.json").done(function (datas, status){
+          $('span').html(status)
+
+          datas.forEach(function (data){
+              addHtml += "<h1>" + data.title + "</h1>"
+                  + "<h4>"+ data.date + "</h4>"
+                  + "<p>"+ data.content + "</p>"
+                  + "<h6>"+ data.categories + "</h6>"
+                  + "<br>"
+                  + "<br>"
+          })
+          $('#post').append(addHtml);
+      })
+
+     // POST
+     $.post("DATA/blog.json", {
+         title: "Im doing JSON",
+         content: "I hope this going well or i will be fixing it",
+         categories: [
+             "computer",
+             "typing"
+         ],
+         date: "today Day"
+     }).done(function (data){
+
+     });
+
+  </script>
+</body>
+</html>
