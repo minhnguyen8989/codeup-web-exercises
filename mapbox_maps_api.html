@@ -12,7 +12,9 @@
 <!--MAPBOX-->
 <div id="map" style="width: 100%; height: 500px; border-radius: 2%;"></div>
 <!--Content Blog-->
-
+<br>
+<label for="points">Zoom in <-- Or --> Zoom Out : </label>
+<input type="range" id="points" name="points" value="9" min="5" max="20">
 <script>
     const myToken = 'pk.eyJ1IjoibWluaG5ndXllbjg5ODkiLCJhIjoiY2xmMnlhbnFkMGM5MjQzbWxkZXIwMndvdCJ9.UGch1pFr-ttmLh-EcA9j4A';
 
@@ -36,11 +38,14 @@
         }
     ];
   mapboxgl.accessToken = myToken;
+
+  // zoom function
+
   const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/minhnguyen8989/clf2z972u004701pbfxi4p5p3',
     center: [-95.35, 29.74],
-    zoom: 9,
+    zoom: document.getElementById("points").value,
   });
 
   myFavoriteRestaurant.forEach(function (data, index){
