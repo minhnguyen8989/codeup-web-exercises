@@ -7,8 +7,6 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
     <script src="JS/keys.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-
 </head>
 <body>
 <!--MAPBOX-->
@@ -16,6 +14,26 @@
 <!--Content Blog-->
 <br>
 <script>
+
+    var myFavoriteRestaurant = [{
+        name: "Viva Restaurant",
+        Lng: "-95.58035191931145",
+        Lat: "29.935783659281928",
+        suggest: "Fried Rice"
+        },
+        {
+            name: "Thuan Kieu Restaurant",
+            Lng: "-95.56864538717248",
+            Lat: "29.705071842003925",
+            suggest: "Pho"
+        },
+        {
+            name: "Haidilao Hot Pot",
+            Lng: "-95.77271967367619",
+            Lat: "29.788706916696444",
+            suggest: "Combo #1"
+        }
+    ];
   mapboxgl.accessToken = myMapBoxKey;
 
   const map = new mapboxgl.Map({
@@ -25,10 +43,7 @@
     zoom: 9,
   });
 
-  $.get("DATA/myFarvoriteRestaurant.json").done(function (jsonData, jsonStatus){
-      console.log(jsonStatus);
-      console.log(jsonData);
-      jsonData.forEach(function (data, index){
+        myFavoriteRestaurant.forEach(function (data, index){
           var addHTML = '';
           addHTML += "<h4> Name: " + data.name + "</h4>"
           addHTML += "<h6> Suggest: " + data.suggest + "</h6>"
@@ -41,7 +56,6 @@
           Popup.setHTML(addHTML);
           restaurant.setPopup(Popup);
       })
-  })
 
 
 
