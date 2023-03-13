@@ -8,6 +8,19 @@
     <script src="JS/keys.js"></script>
 </head>
 <body>
+<h1>Weather App</h1>
+<label for="searchBox">Location: </label>
+<input type="input" id="searchBox">
+<button id="searchID">Search</button>
+<br>
+<div class="container">
+    <div id="day1">day1</div>
+    <div id="day2">day2</div>
+    <div id="day3">day3</div>
+    <div id="day4">day4</div>
+    <div id="day5">day5</div>
+</div>
+<div id="mapBox"></div>
 <script>
     //url syntax example: https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
     const myWeatherAPI = `https://api.openweathermap.org/data/2.5/forecast?lat=${29.51034}&lon=${-98.64661}&appid=${myWeatherMapKey}`;
