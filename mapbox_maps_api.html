@@ -15,29 +15,7 @@
 <div id="map" style="width: 100%; height: 500px; border-radius: 2%;"></div>
 <!--Content Blog-->
 <br>
-<label for="points">Zoom in <-- Or --> Zoom Out : </label>
-<input type="range" id="points" name="points" value="9" min="5" max="20">
 <script>
-
-    // var myFavoriteRestaurant = [{
-    //     name: "Viva Restaurant",
-    //     Lng: "-95.58035191931145",
-    //     Lat: "29.935783659281928",
-    //     suggest: "Fried Rice"
-    //     },
-    //     {
-    //         name: "Thuan Kieu Restaurant",
-    //         Lng: "-95.56864538717248",
-    //         Lat: "29.705071842003925",
-    //         suggest: "Pho"
-    //     },
-    //     {
-    //         name: "Haidilao Hot Pot",
-    //         Lng: "-95.77271967367619",
-    //         Lat: "29.788706916696444",
-    //         suggest: "Combo #1"
-    //     }
-    // ];
   mapboxgl.accessToken = myMapBoxKey;
 
   const map = new mapboxgl.Map({
