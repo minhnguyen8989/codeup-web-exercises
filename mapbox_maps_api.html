@@ -6,6 +6,8 @@
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="JS/keys.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -16,52 +18,54 @@
 <label for="points">Zoom in <-- Or --> Zoom Out : </label>
 <input type="range" id="points" name="points" value="9" min="5" max="20">
 <script>
-    const myToken = 'pk.eyJ1IjoibWluaG5ndXllbjg5ODkiLCJhIjoiY2xmMnlhbnFkMGM5MjQzbWxkZXIwMndvdCJ9.UGch1pFr-ttmLh-EcA9j4A';
 
-    var myFavoriteRestaurant = [{
-        name: "Viva Restaurant",
-        Lng: "-95.58035191931145",
-        Lat: "29.935783659281928",
-        suggest: "Fried Rice"
-        },
-        {
-            name: "Thuan Kieu Restaurant",
-            Lng: "-95.56864538717248",
-            Lat: "29.705071842003925",
-            suggest: "Pho"
-        },
-        {
-            name: "Haidilao Hot Pot",
-            Lng: "-95.77271967367619",
-            Lat: "29.788706916696444",
-            suggest: "Combo #1"
-        }
-    ];
-  mapboxgl.accessToken = myToken;
-
-  // zoom function
+    // var myFavoriteRestaurant = [{
+    //     name: "Viva Restaurant",
+    //     Lng: "-95.58035191931145",
+    //     Lat: "29.935783659281928",
+    //     suggest: "Fried Rice"
+    //     },
+    //     {
+    //         name: "Thuan Kieu Restaurant",
+    //         Lng: "-95.56864538717248",
+    //         Lat: "29.705071842003925",
+    //         suggest: "Pho"
+    //     },
+    //     {
+    //         name: "Haidilao Hot Pot",
+    //         Lng: "-95.77271967367619",
+    //         Lat: "29.788706916696444",
+    //         suggest: "Combo #1"
+    //     }
+    // ];
+  mapboxgl.accessToken = myMapBoxKey;
 
   const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/minhnguyen8989/clf2z972u004701pbfxi4p5p3',
     center: [-95.35, 29.74],
-    zoom: document.getElementById("points").value,
+    zoom: 9,
   });
 
-  myFavoriteRestaurant.forEach(function (data, index){
-      var addHTML = '';
-      addHTML += "<h4> Name: " + data.name + "</h4>"
-      addHTML += "<h6> Suggest: " + data.suggest + "</h6>"
+  $.get("DATA/myFarvoriteRestaurant.json").done(function (jsonData, jsonStatus){
+      console.log(jsonStatus);
+      console.log(jsonData);
+      jsonData.forEach(function (data, index){
+          var addHTML = '';
+          addHTML += "<h4> Name: " + data.name + "</h4>"
+          addHTML += "<h6> Suggest: " + data.suggest + "</h6>"
 
-      var restaurant = new mapboxgl.Marker();
-      restaurant.setLngLat([data.Lng, data.Lat]);
-      restaurant.addTo(map);
+          var restaurant = new mapboxgl.Marker();
+          restaurant.setLngLat([data.Lng, data.Lat]);
+          restaurant.addTo(map);
 
-      let Popup = new mapboxgl.Popup();
-      Popup.setHTML(addHTML);
-      restaurant.setPopup(Popup);
-
+          let Popup = new mapboxgl.Popup();
+          Popup.setHTML(addHTML);
+          restaurant.setPopup(Popup);
+      })
   })
+
+
 
 </script>
 

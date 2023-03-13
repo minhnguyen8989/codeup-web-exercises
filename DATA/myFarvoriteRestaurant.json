@@ -1,0 +1,19 @@
+[{
+  name: "Viva Restaurant",
+  Lng: "-95.58035191931145",
+  Lat: "29.935783659281928",
+  suggest: "Fried Rice"
+},
+  {
+    name: "Thuan Kieu Restaurant",
+    Lng: "-95.56864538717248",
+    Lat: "29.705071842003925",
+    suggest: "Pho"
+  },
+  {
+    name: "Haidilao Hot Pot",
+    Lng: "-95.77271967367619",
+    Lat: "29.788706916696444",
+    suggest: "Combo #1"
+  }
+];
