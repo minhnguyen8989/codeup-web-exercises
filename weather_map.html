@@ -29,45 +29,6 @@
 <script src="JS/mapbox-geocode-utils.js"></script>
 <script>
 
-
-
-
-    geocode("Houston, Tx", myMapBoxKey).then(function(results){
-        console.log(results);
-
-        reverseGeocode({lat: results[1], lng: results[0]},myMapBoxKey).then(function (currentLocation){
-            $("#currentLocation").html(currentLocation)
-        })
-
-        mapboxgl.accessToken = myMapBoxKey;
-        const map = new mapboxgl.Map({
-            container: 'mapBox',
-            style: 'mapbox://styles/minhnguyen8989/clf2z972u004701pbfxi4p5p3',
-            center: [results[0], results[1]],//Set lng.lat Checked
-            zoom: 9,
-        });
-
-        let myMarker = new mapboxgl.Marker();
-        myMarker.setLngLat([results[0], results[1]]);//Set lng.lat Checked
-        myMarker.addTo(map);
-
-        //url syntax example: https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
-        const myWeatherAPI = `https://api.openweathermap.org/data/2.5/forecast?lat=${results[1]}&lon=${results[0]}&appid=${myWeatherMapKey}`;
-        console.log(myWeatherAPI);
-
-        $.get(myWeatherAPI).done(function (jsondata){
-            let addHTML = '';
-            addHTML += "<h1>" + jsondata.list[0].dt_txt + "</h1>"
-            addHTML += "<h3>Temp: min " + jsondata.list[0].main.temp_min + "/" + jsondata.list[0].main.temp_max + " max</h3>"
-            addHTML += "<h4>Description: " + jsondata.list[0].weather[0].description + "</h4>"
-            addHTML += "<h4>Humidity: " + jsondata.list[0].main.humidity + "</h4>"
-            addHTML += "<h4>Wind Speed: " + jsondata.list[0].wind.speed + "</h4>"
-            addHTML += "<h4>Pressure: " + jsondata.list[0].main.pressure + "</h4>"
-
-            $("#weatherBody1").html(addHTML)
-        })
-    })
-
     function searchLocation(){
         let location = $("#searchBox").val();
         geocode(location, myMapBoxKey).then(function(results){
