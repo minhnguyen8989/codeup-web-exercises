@@ -5,6 +5,7 @@
     <title>Weather_Map</title>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="JS/keys.js"></script>
 </head>
 <body>
@@ -14,16 +15,17 @@
 <button id="searchID">Search</button>
 <br>
 <br>
-<div class="container" style="border: 1px solid red">
-    <div id="day1">day1</div>
-    <div id="day2">day2</div>
-    <div id="day3">day3</div>
-    <div id="day4">day4</div>
-    <div id="day5">day5</div>
+<div class="container">
+    <div id="weatherBody1"></div>
+    <div id="weatherBody2"></div>
+    <div id="weatherBody3"></div>
+    <div id="weatherBody4"></div>
+    <div id="weatherBody5"></div>
 </div>
 <br>
 <div id="mapBox" style="width: 100%; height: 500px; border-radius: 2%;"></div>
 <script>
+
     // viva restaurant 29.936431395067164, -95.58032350294637
     //url syntax example: https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
     const myWeatherAPI = `https://api.openweathermap.org/data/2.5/forecast?lat=${29.936431395067164}&lon=${-95.58032350294637}&appid=${myWeatherMapKey}`;
@@ -37,7 +39,21 @@
         zoom: 9,
     });
 
-//TODO:
+    $.get(myWeatherAPI).done(function (jsondata){
+        let addHTML = '';
+        addHTML += "<h1>" + jsondata.list[0].dt_txt + "</h1>"
+        addHTML += "<h3>Temp: min " + jsondata.list[0].main.temp_min + "/" + jsondata.list[0].main.temp_max + " max</h3>"
+        addHTML += "<h4>Description: " + jsondata.list[0].weather[0].description + "</h4>"
+        addHTML += "<h4>Humidity: " + jsondata.list[0].main.humidity + "</h4>"
+        addHTML += "<h4>Wind Speed: " + jsondata.list[0].wind.speed + "</h4>"
+        addHTML += "<h4>Pressure: " + jsondata.list[0].main.pressure + "</h4>"
+
+        $("#weatherBody1").html(addHTML)
+    })
+
+
+
+//TODO
 //push data from weather API to 5 days
 //make search box function.
 
