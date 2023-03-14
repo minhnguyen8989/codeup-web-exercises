@@ -12,8 +12,9 @@
 <h1>Weather App</h1>
 <label for="searchBox">Location: </label>
 <input type="input" id="searchBox" placeholder="city, state">
-<button id="searchID">Search</button>
+<button id="searchButton">Search</button>
 <br>
+<h3>Current Location: <span id="currentLocation"></span></h3>
 <br>
 <div class="container">
     <div id="weatherBody1"></div>
@@ -26,32 +27,74 @@
 <div id="mapBox" style="width: 100%; height: 500px; border-radius: 2%;"></div>
 <script>
 
-    // viva restaurant 29.936431395067164, -95.58032350294637
-    //url syntax example: https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
-    const myWeatherAPI = `https://api.openweathermap.org/data/2.5/forecast?lat=${29.936431395067164}&lon=${-95.58032350294637}&appid=${myWeatherMapKey}`;
-    console.log(myWeatherAPI);
 
-    mapboxgl.accessToken = myMapBoxKey;
-    const map = new mapboxgl.Map({
-        container: 'mapBox',
-        style: 'mapbox://styles/minhnguyen8989/clf2z972u004701pbfxi4p5p3',
-        center: [-95.35, 29.74],
-        zoom: 9,
-    });
 
-    $.get(myWeatherAPI).done(function (jsondata){
-        let addHTML = '';
-        addHTML += "<h1>" + jsondata.list[0].dt_txt + "</h1>"
-        addHTML += "<h3>Temp: min " + jsondata.list[0].main.temp_min + "/" + jsondata.list[0].main.temp_max + " max</h3>"
-        addHTML += "<h4>Description: " + jsondata.list[0].weather[0].description + "</h4>"
-        addHTML += "<h4>Humidity: " + jsondata.list[0].main.humidity + "</h4>"
-        addHTML += "<h4>Wind Speed: " + jsondata.list[0].wind.speed + "</h4>"
-        addHTML += "<h4>Pressure: " + jsondata.list[0].main.pressure + "</h4>"
+    function geocode(search, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+                // to get all the data from the request, comment out the following three lines...
+            }).then(function(data) {
+                return data.features[0].center;
+            });
+    }
 
-        $("#weatherBody1").html(addHTML)
+
+    geocode("NewYork City", myMapBoxKey).then(function(results){
+
+        function reverseGeocode(coordinates, token) {
+            var baseUrl = 'https://api.mapbox.com';
+            var endPoint = '/geocoding/v5/mapbox.places/';
+            return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
+                .then(function(res) {
+                    return res.json();
+                })
+                // to get all the data from the request, comment out the following three lines...
+                .then(function(data) {
+                    return data.features[0].place_name;
+                });
+        }
+        reverseGeocode({lat: results[1], lng: results[0]},myMapBoxKey).then(function (locationResult){
+            $("#currentLocation").html(locationResult)
+        })
+
+        mapboxgl.accessToken = myMapBoxKey;
+        const map = new mapboxgl.Map({
+            container: 'mapBox',
+            style: 'mapbox://styles/minhnguyen8989/clf2z972u004701pbfxi4p5p3',
+            center: [results[0], results[1]],//Set lng.lat Checked
+            zoom: 9,
+        });
+
+        let myMarker = new mapboxgl.Marker();
+        myMarker.setLngLat([results[0], results[1]]);//Set lng.lat
+        myMarker.addTo(map);
+
+        //url syntax example: https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
+        const myWeatherAPI = `https://api.openweathermap.org/data/2.5/forecast?lat=${results[1]}&lon=${results[0]}&appid=${myWeatherMapKey}`;
+        console.log(myWeatherAPI);
+
+        $.get(myWeatherAPI).done(function (jsondata){
+            let addHTML = '';
+            addHTML += "<h1>" + jsondata.list[0].dt_txt + "</h1>"
+            addHTML += "<h3>Temp: min " + jsondata.list[0].main.temp_min + "/" + jsondata.list[0].main.temp_max + " max</h3>"
+            addHTML += "<h4>Description: " + jsondata.list[0].weather[0].description + "</h4>"
+            addHTML += "<h4>Humidity: " + jsondata.list[0].main.humidity + "</h4>"
+            addHTML += "<h4>Wind Speed: " + jsondata.list[0].wind.speed + "</h4>"
+            addHTML += "<h4>Pressure: " + jsondata.list[0].main.pressure + "</h4>"
+
+            $("#weatherBody1").html(addHTML)
+        })
     })
 
 
+
+
+    //Search Button
+    // var SearchButton = document.getElementById("searchButton");
+    // SearchButton.addEventListener("click", geocode);
 
 //TODO
 //push data from weather API to 5 days
