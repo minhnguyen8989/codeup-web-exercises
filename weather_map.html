@@ -6,7 +6,7 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <script src="JS/keys.js"></script>
+
 </head>
 <body>
 <h1>Weather App</h1>
@@ -25,39 +25,18 @@
 </div>
 <br>
 <div id="mapBox" style="width: 100%; height: 500px; border-radius: 2%;"></div>
+<script src="JS/keys.js"></script>
+<script src="JS/mapbox-geocode-utils.js"></script>
 <script>
 
 
 
-    function geocode(search, token) {
-        var baseUrl = 'https://api.mapbox.com';
-        var endPoint = '/geocoding/v5/mapbox.places/';
-        return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
-            .then(function(res) {
-                return res.json();
-                // to get all the data from the request, comment out the following three lines...
-            }).then(function(data) {
-                return data.features[0].center;
-            });
-    }
 
+    geocode("Houston, Tx", myMapBoxKey).then(function(results){
+        console.log(results);
 
-    geocode("NewYork City", myMapBoxKey).then(function(results){
-
-        function reverseGeocode(coordinates, token) {
-            var baseUrl = 'https://api.mapbox.com';
-            var endPoint = '/geocoding/v5/mapbox.places/';
-            return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
-                .then(function(res) {
-                    return res.json();
-                })
-                // to get all the data from the request, comment out the following three lines...
-                .then(function(data) {
-                    return data.features[0].place_name;
-                });
-        }
-        reverseGeocode({lat: results[1], lng: results[0]},myMapBoxKey).then(function (locationResult){
-            $("#currentLocation").html(locationResult)
+        reverseGeocode({lat: results[1], lng: results[0]},myMapBoxKey).then(function (currentLocation){
+            $("#currentLocation").html(currentLocation)
         })
 
         mapboxgl.accessToken = myMapBoxKey;
@@ -69,7 +48,7 @@
         });
 
         let myMarker = new mapboxgl.Marker();
-        myMarker.setLngLat([results[0], results[1]]);//Set lng.lat
+        myMarker.setLngLat([results[0], results[1]]);//Set lng.lat Checked
         myMarker.addTo(map);
 
         //url syntax example: https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
@@ -89,17 +68,46 @@
         })
     })
 
+    function searchLocation(){
+        let location = $("#searchBox").val();
+        geocode(location, myMapBoxKey).then(function(results){
+            console.log(results);
 
+            reverseGeocode({lat: results[1], lng: results[0]},myMapBoxKey).then(function (currentLocation){
+                $("#currentLocation").html(currentLocation)
+            })
 
+            mapboxgl.accessToken = myMapBoxKey;
+            const map = new mapboxgl.Map({
+                container: 'mapBox',
+                style: 'mapbox://styles/minhnguyen8989/clf2z972u004701pbfxi4p5p3',
+                center: [results[0], results[1]],//Set lng.lat Checked
+                zoom: 9,
+            });
 
-    //Search Button
-    // var SearchButton = document.getElementById("searchButton");
-    // SearchButton.addEventListener("click", geocode);
+            let myMarker = new mapboxgl.Marker();
+            myMarker.setLngLat([results[0], results[1]]);//Set lng.lat Checked
+            myMarker.addTo(map);
 
-//TODO
-//push data from weather API to 5 days
-//make search box function.
+            //url syntax example: https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
+            const myWeatherAPI = `https://api.openweathermap.org/data/2.5/forecast?lat=${results[1]}&lon=${results[0]}&appid=${myWeatherMapKey}`;
+            console.log(myWeatherAPI);
 
+            $.get(myWeatherAPI).done(function (jsondata){
+                let addHTML = '';
+                addHTML += "<h1>" + jsondata.list[0].dt_txt + "</h1>"
+                addHTML += "<h3>Temp: min " + jsondata.list[0].main.temp_min + "/" + jsondata.list[0].main.temp_max + " max</h3>"
+                addHTML += "<h4>Description: " + jsondata.list[0].weather[0].description + "</h4>"
+                addHTML += "<h4>Humidity: " + jsondata.list[0].main.humidity + "</h4>"
+                addHTML += "<h4>Wind Speed: " + jsondata.list[0].wind.speed + "</h4>"
+                addHTML += "<h4>Pressure: " + jsondata.list[0].main.pressure + "</h4>"
+
+                $("#weatherBody1").html(addHTML)
+            })
+        })
+    }
+    var SearchButton = document.getElementById("searchButton");
+    SearchButton.addEventListener("click", searchLocation);
 
 
 </script>
