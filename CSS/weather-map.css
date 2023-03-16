@@ -24,3 +24,7 @@ input {
     margin: 0 10px;
     width: 50%;
 }
+.row {
+    display: flex;
+    justify-content: space-evenly;
+}
