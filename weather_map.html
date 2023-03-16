@@ -233,7 +233,6 @@
     function searchLocation(){
         let location = $("#searchBox").val();
         geocode(location, myMapBoxKey).then(function(results){
-            console.log(results);
             reverseGeocode({lat: results[1], lng: results[0]},myMapBoxKey).then(function (currentLocation){
                 $("#currentLocation").html(currentLocation)
             })
