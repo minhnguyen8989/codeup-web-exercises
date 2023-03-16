@@ -12,6 +12,7 @@ h1 {
 }
 .searchClass {
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 #currentLocation {
