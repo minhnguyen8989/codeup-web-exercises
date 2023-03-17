@@ -87,8 +87,9 @@ console.log("-----------------");
 //Use .reduce to get the unique list of languages from the list of users.
 
 let getUsersLanguage = users.reduce(function (totalLanguage, language){
-    return totalLanguage + language.languages
+    return totalLanguage + language.languages + ","
 },"")
+console.log(getUsersLanguage);
 let splitLanguage = getUsersLanguage.trim().split(',');
 
 let uniqueLanguage = splitLanguage.filter(function (item, i, allItems){
